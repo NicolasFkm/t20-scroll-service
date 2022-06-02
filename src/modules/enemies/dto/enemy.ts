@@ -11,3 +11,8 @@ export class CreateEnemyInput {
   level: number;
   size: Size;
 }
+
+export class UpdateEnemyDefenseInput {
+  armor: number;
+  healthPoints: number;
+}

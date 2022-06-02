@@ -11,3 +11,8 @@ export const yupCreateEnemyInput = yup.object().shape({
   level: yup.number().required(),
   size: yup.string().required(),
 });
+
+export const yupUpdateEnemyDefenseInput = yup.object().shape({
+  armor: yup.number().required().positive().integer(),
+  healthPoints: yup.number().required().positive().integer(),
+});
