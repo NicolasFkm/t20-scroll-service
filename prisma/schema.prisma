@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Size {
+  SMALL
+  MEDIUM
+  LARGE
+  HUGE
+  COLOSSAL
+}
+
+model Enemy {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  name         String   @unique
+  difficult    Int
+  initiative   Int
+  perception   Int
+  armor        Int
+  healthPoints Int
+  movement     Float
+  level        Int
+  size         Size     @default(MEDIUM)
+
+  @@map("enemies")
+}
